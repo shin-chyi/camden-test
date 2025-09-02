@@ -7,7 +7,8 @@
         "navigate": "Navigate",
         "info": "Info",
         "categories": "Categories",
-        "call_us": "Call us at {phone_number}"
+        "call_us": "Call us at {phone_number}",
+        "pages": "Pages"
     },
     "home": {
         "heading": "Home"
@@ -791,10 +792,10 @@
         "comments": "Comments"
     },
     "newsletter": {
-        "subscribe": "Join our newsletter",
+        "subscribe": "Subscribe to our newsletter",
         "subscribe_intro": "Get the latest updates on new products and upcoming sales!",
         "subscribe_submit": "Subscribe",
-        "email_placeholder": "email address",
+        "email_placeholder": "Email address",
         "subscribed_heading": "Thanks for Subscribing!",
         "subscribed_heading_error": "Oops...",
         "subscribed_message": "Thank you for joining our mailing list. You'll be sent the next issue of our newsletter shortly",

@@ -88,8 +88,8 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background-color: #fff; /* White background */
-  color: #333; /* Black text */
+  background-color: #fff;
+  color: #333;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -109,7 +109,8 @@
 .notification-image img {
   width: 100px;
   height: 100px;
-  object-fit: cover; /* Ensures image fills space without distortion */
+  object-fit: cover;
+  /* Ensures image fills space without distortion */
   border-radius: 4px;
 }
 
@@ -128,14 +129,14 @@
 
 /* Product name */
 .notification-product {
-  font-size: 18px; /* Larger text */
-  font-weight: bold; /* Bold */
+  font-size: 18px;
+  font-weight: bold;
   margin: 5px 0;
 }
 
 /* Product price */
 .notification-price {
-  font-size: 18px; /* Same size as product name */
+  font-size: 18px;
   color: #fda239;
   font-weight: bold;
   margin: 5px 0;
@@ -143,24 +144,69 @@
 
 /* Time ago */
 .notification-time {
-  font-size: 12px; /* Smaller text */
+  font-size: 12px;
   margin: 0;
 }
 
-/* Animation for slide-in effect */
 @keyframes slideIn {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-/* Responsive adjustments */
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-info-col--custom-4 {
+  flex: 0 0 20%;
+  // max-width: 20%;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.form-prefixPostfix .form-input,
+.form-prefixPostfix .form-prefixPostfix-button--postfix {
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-prefixPostfix .form-prefixPostfix-button--postfix {
+  margin: 0
+}
+
+.footer-info-col--custom-4 .form-prefixPostfix.wrap {
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .footer-info-col--custom-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 @media (max-width: 480px) {
   .purchase-notification {
     max-width: 90%;
     padding: 10px;
   }
+
   .notification-image img {
     width: 80px;
     height: 80px;
+  }
+
+  .footer-info-col--custom-2-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

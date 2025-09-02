@@ -5212,8 +5212,10 @@ display: none !important;
 }
 footer a.navPages-action.phone-number {
 color: stencilColor("footer-textColor");
-padding-top: 0;
-display: none;
+padding: 0px 0px 8px 0px;
+display: block;
+font-weight: 400;
+font-size: 12px;
 }
 .mega-cat-dropdown div.mobile {
   display: none;
