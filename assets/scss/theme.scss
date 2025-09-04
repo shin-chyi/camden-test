@@ -168,7 +168,6 @@
 
 .footer-info-col--custom-4 {
   flex: 0 0 20%;
-  // max-width: 20%;
   box-sizing: border-box;
   padding: 0 15px;
 }
@@ -187,10 +186,15 @@
   gap: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
+  .footer-info {
+    justify-content: center;
+  }
+
   .footer-info-col--custom-4 {
     flex: 0 0 50%;
     max-width: 50%;
+    text-align: center;
   }
 }
 
