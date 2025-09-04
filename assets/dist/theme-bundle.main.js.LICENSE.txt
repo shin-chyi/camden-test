@@ -10,7 +10,10 @@
 * @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
 */
 
-/*! https://mths.be/punycode v1.4.1 by @mathias */
+/*!
+* tabbable 5.3.3
+* @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
+*/
 
 /*! jQuery v3.7.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */
 

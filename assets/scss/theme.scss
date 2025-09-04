@@ -18,11 +18,12 @@
 //
 // 1. Stencil global settings get imported first.
 // 2. Import all Citadel and Foundation settings.
-// 3. Import Citadel's version of foundation.
-//      - This enables the ability to "null" variables in the Stencil settings.
+// 3. Common aria helpers.
 // 4. Import Stencil's component settings overrides.
 // 5. Import tools which set/reset Citadel's global settings, to be consumed by
 //    the rest of Stencil.
+// 6. Import Citadel's version of foundation.
+//      - This enables the ability to "null" variables in the Stencil settings.
 //
 // -----------------------------------------------------------------------------
 
@@ -36,7 +37,7 @@
 @import "../../node_modules/@bigcommerce/citadel/dist/settings/foundation/foundation"; // 2
 @import "../../node_modules/@bigcommerce/citadel/dist/settings/bigcommerce/bigcommerce"; // 2
 
-@import "../../node_modules/@bigcommerce/citadel/dist/vendor/foundation/foundation"; // 3
+@import "../../node_modules/@bigcommerce/citadel/dist/vendor/foundation/foundation"; // 6
 
 @import "settings/normalize/normalize"; // 4
 @import "settings/vendor/vendor"; // 4
@@ -53,12 +54,6 @@
 @import "../../node_modules/@bigcommerce/citadel/dist/utilities/utilities";
 
 
-// Fonts
-// -----------------------------------------------------------------------------
-
-@import "fonts/fonts";
-
-
 // Components
 // -----------------------------------------------------------------------------
 //
@@ -70,7 +65,8 @@
 
 @import "../../node_modules/@bigcommerce/citadel/dist/vendor/normalize/normalize"; // 1
 @import "../../node_modules/@bigcommerce/citadel/dist/components/components"; // 2
-@import "components/components"; // 3
+@import "common/index"; // 3
+@import "components/components"; // 6
 
 
 // Layouts
@@ -81,136 +77,3 @@
 // -----------------------------------------------------------------------------
 
 @import "layouts/layouts"; // 1
-
-@import "vendor/jstree/style";
-
-.purchase-notification {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #fff;
-  color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  max-width: 400px;
-  animation: slideIn 0.5s ease-in-out;
-}
-
-/* Image styling */
-.notification-image {
-  flex: 0 0 auto;
-  margin-right: 15px;
-}
-
-.notification-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  /* Ensures image fills space without distortion */
-  border-radius: 4px;
-}
-
-/* Text container */
-.notification-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Customer name */
-.notification-customer {
-  font-size: 14px;
-  margin: 0;
-}
-
-/* Product name */
-.notification-product {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 5px 0;
-}
-
-/* Product price */
-.notification-price {
-  font-size: 18px;
-  color: #fda239;
-  font-weight: bold;
-  margin: 5px 0;
-}
-
-/* Time ago */
-.notification-time {
-  font-size: 12px;
-  margin: 0;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.footer-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.footer-info-col--custom-4 {
-  flex: 0 0 20%;
-  box-sizing: border-box;
-  padding: 0 15px;
-}
-
-.form-prefixPostfix .form-input,
-.form-prefixPostfix .form-prefixPostfix-button--postfix {
-  border-radius: 4px;
-  width: 100%;
-}
-
-.form-prefixPostfix .form-prefixPostfix-button--postfix {
-  margin: 0
-}
-
-.footer-info-col--custom-4 .form-prefixPostfix.wrap {
-  gap: 8px;
-}
-
-@media (max-width: 720px) {
-  .footer-info {
-    justify-content: center;
-  }
-
-  .footer-info-col--custom-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .purchase-notification {
-    max-width: 90%;
-    padding: 10px;
-  }
-
-  .notification-image img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .footer-info-col--custom-2-4 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}

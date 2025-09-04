@@ -24,9 +24,9 @@
     }
 
     &.slick-initialized {
-        /*@include breakpoint("small") {
+        @include breakpoint("small") {
             max-height: remCalc(400px);
-        }*/
+        }
 
         @include breakpoint("medium") {
             max-height: remCalc(600px);
@@ -164,9 +164,9 @@
         max-height: 100vh;
         transition: height 0.3s ease;
 
-        /*@include breakpoint("small") {
+        @include breakpoint("small") {
             max-height: remCalc(400px);
-        }*/
+        }
 
         @include breakpoint("medium") {
             max-height: remCalc(600px);
@@ -179,12 +179,9 @@
     padding: spacing("half") spacing("single") (spacing("double"));
     text-align: center;
 
-    @include breakpoint("medium") {
+    @include breakpoint("small") {
         @include carouselOpaqueBackgrounds;
-        background: linear-gradient(360deg, rgba($carousel-bgColor, .1) 0%, rgba($carousel-bgColor, 1) 60%);
-        background-image: -moz-linear-gradient(360deg, rgba($carousel-bgColor, .1) 0%, rgba($carousel-bgColor, 1) 60%);
-        background-image: -webkit-linear-gradient(360deg, rgba($carousel-bgColor, .1) 0%, rgba($carousel-bgColor, 1) 60%);
-        background-image: -ms-linear-gradient(360deg, rgba($carousel-bgColor, .1) 0%, rgba($carousel-bgColor, 1) 60%);
+        background-color: rgba($carousel-bgColor, 0.9);
         left: 0;
         margin: 0 auto;
         max-height: 80%;
@@ -199,7 +196,7 @@
         width: 70%;
 
         &.heroCarousel-content--empty {
-            background: transparent;
+            background-color: transparent;
             left: 50%;
             overflow: visible;
             padding: 0;

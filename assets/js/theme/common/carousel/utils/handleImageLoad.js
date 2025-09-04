@@ -21,8 +21,7 @@ export default (e, carouselObj) => {
     if (isAnalyzedSlide) return;
 
     $activeSlideAndClones.data(IS_ANALYZED_DATA_ATTR, true);
-    if(activeSlideImgNode)
-    {
+
     if (activeSlideImgNode.complete) {
         if (activeSlideImgNode.naturalHeight === 0) {
             $activeSlideAndClones.addClass(IMAGE_ERROR_CLASS);
@@ -32,7 +31,6 @@ export default (e, carouselObj) => {
         }
 
         return;
-    }
     }
 
     if (!$activeSlideImg.attr('src')) {

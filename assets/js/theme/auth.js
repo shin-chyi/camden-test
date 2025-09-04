@@ -89,7 +89,7 @@ export default class Auth extends PageManager {
     }
 
     registerNewPasswordValidation() {
-        const { password: enterPassword, password_match: matchPassword, invalid_password: invalidPassword } = this.validationDictionary;
+        const { password: enterPassword, password_match: matchPassword } = this.validationDictionary;
         const newPasswordForm = '.new-password-form';
         const newPasswordValidator = nod({
             submit: $(`${newPasswordForm} input[type="submit"]`),
@@ -111,7 +111,7 @@ export default class Auth extends PageManager {
         const validationModel = validation($createAccountForm, this.context);
         const createAccountValidator = nod({
             submit: `${this.formCreateSelector} input[type='submit']`,
-            tap: announceInputErrorMessage,
+            delay: 900,
         });
         const $stateElement = $('[data-field-type="State"]');
         const emailSelector = `${this.formCreateSelector} [data-field-type='EmailAddress']`;
@@ -157,7 +157,7 @@ export default class Auth extends PageManager {
         }
 
         if ($passwordElement && $password2Element) {
-            const { password: enterPassword, password_match: matchPassword, invalid_password: invalidPassword } = this.validationDictionary;
+            const { password: enterPassword, password_match: matchPassword } = this.validationDictionary;
 
             createAccountValidator.remove(passwordSelector);
             createAccountValidator.remove(password2Selector);
@@ -170,15 +170,22 @@ export default class Auth extends PageManager {
             );
         }
 
-        $createAccountForm.on('submit', event => {
-            createAccountValidator.performCheck();
-
-            if (createAccountValidator.areAll('valid')) {
-                return;
-            }
-
-            event.preventDefault();
+        $createAccountForm.on('submit', (event) => {
+            this.submitAction(event, createAccountValidator);
         });
+    }
+
+    submitAction(event, validator) {
+        validator.performCheck();
+
+        if (validator.areAll('valid')) {
+            return;
+        }
+        event.preventDefault();
+        setTimeout(() => {
+            const earliestError = $('span.form-inlineMessage:first').prev('input');
+            earliestError.trigger('focus');
+        }, 900);
     }
 
     /**

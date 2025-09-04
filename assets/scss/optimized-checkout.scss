@@ -21,9 +21,9 @@
 
 .optimizedCheckout-header {
     background-color: stencilColor("optimizedCheckout-header-backgroundColor");
-    // scss-lint:disable StringQuotes
+    /* stylelint-disable function-url-quotes*/
     background-image: url(stencilImage('optimizedCheckout-backgroundImage', 'optimizedCheckout-backgroundImage-size'));
-    // scss-lint:enable StringQuotes
+    /* stylelint-enable */
     background-size: cover;
     border-color: stencilColor("optimizedCheckout-header-borderColor");
     color: stencilColor("optimizedCheckout-header-textColor");
@@ -200,7 +200,7 @@ a {
 .optimizedCheckout-orderSummary {
     background-color: stencilColor("optimizedCheckout-orderSummary-backgroundColor");
     border-color: stencilColor("optimizedCheckout-orderSummary-borderColor");
-    box-shadow: 0 1px 4px transparentize(stencilColor("optimizedCheckout-orderSummary-borderColor"), 0.4);
+    box-shadow: 0 4px 8px transparentize(stencilColor("optimizedCheckout-orderSummary-borderColor"), 0.5);
 }
 
 .optimizedCheckout-orderSummary-cartSection {
@@ -378,24 +378,4 @@ $optimizedCheckout-input--error-boxShadow: 0 0 3px transparentize(stencilColor("
 .optimizedCheckout-loadingToaster {
     background-color: stencilColor("optimizedCheckout-loadingToaster-backgroundColor");
     color: stencilColor("optimizedCheckout-loadingToaster-textColor");
-}
-
-.form-input {
-  border-radius: 0;
-}
-
-.form-select {
-  border-radius: 0 !important;
-}
-
-.alertBox {
-  border-radius: 0 !important;
-}
-
-.cart {
-  border-radius: 0;
-}
-
-.modal-footer .button {
-  background-color: stencilColor("color-primary");
 }

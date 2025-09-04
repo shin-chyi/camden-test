@@ -11,6 +11,7 @@ import forms from '../common/models/forms';
 import { normalizeFormData } from './utils/api';
 import { isBrowserIE, convertIntoArray } from './utils/ie-helpers';
 import bannerUtils from './utils/banner-utils';
+import currencySelector from '../global/currency-selector';
 
 export default class ProductDetails extends ProductDetailsBase {
     constructor($scope, context, productAttributesData = {}) {
@@ -272,18 +273,13 @@ export default class ProductDetails extends ProductDetailsBase {
                 const $context = $form.parents('.productView').find('.productView-info');
                 modalFactory('[data-reveal]', { $context });
             }
+
             document.dispatchEvent(new CustomEvent('onProductOptionsChanged', {
-
                 bubbles: true,
-
                 detail: {
-
                     content: productAttributesData,
-
                     data: productAttributesContent,
-
                 },
-
             }));
         });
     }
@@ -381,6 +377,7 @@ export default class ProductDetails extends ProductDetailsBase {
             viewModel.quantity.$text.text(qty);
             // perform validation after updating product quantity
             this.addToCartValidator.performCheck();
+
             this.updateProductDetailsData();
         });
 
@@ -393,6 +390,7 @@ export default class ProductDetails extends ProductDetailsBase {
                 event.preventDefault();
             }
         });
+
         this.$scope.on('keyup', '.form-input--incrementTotal', () => {
             this.updateProductDetailsData();
         });
@@ -424,6 +422,7 @@ export default class ProductDetails extends ProductDetailsBase {
 
         // Add item to cart
         utils.api.cart.itemAdd(normalizeFormData(new FormData(form)), (err, response) => {
+            currencySelector(response.data.cart_id);
             const errorMessage = err || response.data.error;
 
             $addToCartBtn
